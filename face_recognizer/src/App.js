@@ -7,7 +7,7 @@ import Logo from "./components/Logo/Logo"
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from './components/Rank/Rank';
 import './App.css'
-import Particles from 'react-particles-js';
+import Particles from 'react-particles';
 
 const particleOptions = {
   particles:{
@@ -26,7 +26,8 @@ class App extends Component{
 
     return(
       <div className="App">
-       <Particles height="100vh" width="100vw" params={particleOptions} />
+       <Particles 
+                params={particleOptions} />
 
         <Navigation/>
         <Logo />
