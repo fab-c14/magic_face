@@ -6,8 +6,7 @@ import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from './components/Rank/Rank';
 import './App.css';
 
-
-
+import ParticlesBackground from "./components/ParticlesBackground";
 
 
 
@@ -17,6 +16,9 @@ class App extends Component{
 
     return(
       <div className="App">
+
+      <ParticlesBackground className="particles"
+      />
 
         <Navigation/>
         <Logo />
