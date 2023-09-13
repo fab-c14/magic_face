@@ -1,14 +1,6 @@
 import Particles from 'react-tsparticles';
 import {loadFull} from 'tsparticles';
-
-const ParticlesBackground = ()=>{
-    const ParticlesInit = async (main)=>{
-        console.log(main);
-        await loadFull(main);
-    }
-    return( 
-    <div> 
-        <Particles init={ParticlesInit}   options={{
+const particlesSetting = {
   "autoPlay": true,
   "background": {
     "color": {
@@ -601,7 +593,15 @@ const ParticlesBackground = ()=>{
     }
   }
 } 
-        }/>
+
+const ParticlesBackground = ()=>{
+    const ParticlesInit = async (main)=>{
+        console.log(main);
+        await loadFull(main);
+    }
+    return( 
+    <div> 
+        <Particles init={ParticlesInit}   options={particlesSetting}/>
     </div>
     );
 }
