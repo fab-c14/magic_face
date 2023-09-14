@@ -1,6 +1,6 @@
 import Particles from 'react-tsparticles';
 import {loadFull} from 'tsparticles';
-const particlesSetting = {
+const particlesOptions = {
   "autoPlay": true,
   "background": {
     "color": {
@@ -601,7 +601,7 @@ const ParticlesBackground = ()=>{
     }
     return( 
     <div> 
-        <Particles init={ParticlesInit}   options={particlesSetting}/>
+        <Particles init={ParticlesInit}   options={particlesOptions}/>
     </div>
     );
 }
