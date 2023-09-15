@@ -25,8 +25,7 @@ class App extends Component{
         <Rank />
         <ImageLinkForm/>
         {/* 
-
-        <FaceRecognition /> 
+          <FaceRecognition /> 
         */}
         
       </div>
