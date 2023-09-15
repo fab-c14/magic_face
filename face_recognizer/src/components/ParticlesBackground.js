@@ -329,13 +329,15 @@ const particlesOptions = {
       "warp": false
     },
     "number": {
+
       "density": {
         "enable": true,
         "width": 1920,
-        "height": 1080
+        "height": 1080,
+        
       },
       "limit": 0,
-      "value": 100
+      "value": 200
     },
     "opacity": {
       "random": {

@@ -26,6 +26,12 @@ class App extends Component{
         <ImageLinkForm/>
         {/* 
           <FaceRecognition /> 
+          // before we start big part
+          1.This is going to be hard. 
+          2.the project works
+          3.follow my method.
+          4.Grpc
+          5.Modelid.
         */}
         
       </div>
