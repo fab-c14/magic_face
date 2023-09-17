@@ -4,6 +4,8 @@ import Navigation from "./components/Navigation";
 import Logo from "./components/Logo/Logo"
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from './components/Rank/Rank';
+import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+
 import './App.css';
 import Clarifai from 'clarifai';
 import ParticlesBackground from "./components/ParticlesBackground";
@@ -25,10 +27,7 @@ class App extends Component{
 
   onButtonSubmit =()=>{
     console.log("click"); 
-    app.models.predict(
-      "6dc7e46bc9124c5c8824be4822abe105",
-      "https://samples.clarifai.com/metro-north.jpg")
-      .then(
+    app.models.predict("6dc7e46bc9124c5c8824be4822abe105","https://samples.clarifai.com/metro-north.jpg").then(
         function(response){
           console.log(response)
         },
@@ -37,6 +36,7 @@ class App extends Component{
         }
     );
   }
+
   render(){
     
 
@@ -50,8 +50,8 @@ class App extends Component{
         <Logo />
         <Rank />
         <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+        <FaceRecognition /> 
         {/* 
-          <FaceRecognition /> 
           // before we start big part
           1.This is going to be hard. 
           2.the project works
