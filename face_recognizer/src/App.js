@@ -5,10 +5,12 @@ import Logo from "./components/Logo/Logo"
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from './components/Rank/Rank';
 import './App.css';
-
+import Clarifai from 'clarifai';
 import ParticlesBackground from "./components/ParticlesBackground";
 
-
+const app = new Clarifai.App({
+  apiKey:'1d89d60f604d483d819196b41b3e24c6'
+});
 
 class App extends Component{
   constructor(){
@@ -22,7 +24,18 @@ class App extends Component{
   }
 
   onButtonSubmit =()=>{
-    console.log("click");
+    console.log("click"); 
+    app.models.predict(
+      "6dc7e46bc9124c5c8824be4822abe105",
+      "https://samples.clarifai.com/metro-north.jpg")
+      .then(
+        function(response){
+          console.log(response)
+        },
+        function(err){
+          // there was an error
+        }
+    );
   }
   render(){
     
