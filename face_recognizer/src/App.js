@@ -7,11 +7,17 @@ import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 
 import './App.css';
-import Clarifai from 'clarifai';
+import Clarifai, { COLOR_MODEL } from 'clarifai';
 import ParticlesBackground from "./components/ParticlesBackground";
 
+
+// import {Clarifai} from "clarifai-nodejs-grpc";
+
+// const app = ClarifaiStub.app();
+
+
 const app = new Clarifai.App({
-  apiKey:'1d89d60f604d483d819196b41b3e24c6'
+  apiKey:"1d89d60f604d483d819196b41b3e24c6"
 });
 
 class App extends Component{
@@ -19,17 +25,23 @@ class App extends Component{
     super();
     this.state = {
       input:"",
+      imageUrl:""
     }
   }
   onInputChange = (event)=>{
-    console.log(event.target.value);
+    
+    this.setState({input:event.target.value});
   }
 
   onButtonSubmit =()=>{
-    console.log("click"); 
-    app.models.predict("6dc7e46bc9124c5c8824be4822abe105","https://samples.clarifai.com/metro-north.jpg").then(
+    this.setState({imageUrl:this.state.input})
+    app.models.predict(
+      Clarifai.FACE_DETECT_MODEL,
+      this.state.input
+      )
+      .then(
         function(response){
-          console.log(response)
+          console.log(response.output[0].data.regions[0].region_info.bounding_box)
         },
         function(err){
           // there was an error
@@ -50,7 +62,7 @@ class App extends Component{
         <Logo />
         <Rank />
         <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
-        <FaceRecognition /> 
+        <FaceRecognition imageUrl={this.state.imageUrl} /> 
         {/* 
           // before we start big part
           1.This is going to be hard. 
