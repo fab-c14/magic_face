@@ -1,25 +1,20 @@
-import React,{Component} from "react";
-import "tachyons";
-import Navigation from "./components/Navigation";
-import Logo from "./components/Logo/Logo"
-import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
-import Rank from './components/Rank/Rank';
+import React, { Component } from 'react';
+// import Particles from 'react-particles-js';
+// import ParticlesBg from 'particles-bg'
+import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import Navigation from './components/Navigation/Navigation';
 
+import Logo from './components/Logo/Logo';
+import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
+import Rank from './components/Rank/Rank';
 import './App.css';
-import Clarifai, { COLOR_MODEL } from 'clarifai';
-import ParticlesBackground from "./components/ParticlesBackground";
 
-
-// import {Clarifai} from "clarifai-nodejs-grpc";
-
-// const app = ClarifaiStub.app();
-
+//You must add your own API key here from Clarifai.
 
 const app = new Clarifai.App({
-  apiKey:"1d89d60f604d483d819196b41b3e24c6"
-});
-
+  apiKey:'1d89d60f604d483d819196b41b3e24c6'
+})
 class App extends Component{
   constructor(){
     super();
@@ -67,8 +62,6 @@ class App extends Component{
     return(
       <div className="App">
 
-      <ParticlesBackground className="particles"
-      />
 
         <Navigation/>
         <Logo />
